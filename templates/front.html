@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Front End Testing</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cupcakes!</h1>
+
+        <ul class="list-group">
+            {% for cupcake in cupcakes %}
+            <li class="list-group-item">{{cupcake.flavor}}
+                <button class="delete-cupcake" data-id="{{cupcake.id}}">X</button>
+            </li>
+            {% endfor %}
+
+        </ul>
+
+        <div class="border rounded mt-3">
+            <h3>Enter a new cupcake</h3>
+            <form id="new_cake_form">
+                <div class="form-group">
+                    <label for="flavor">flavor</label>
+                    <input id="flavor" name="flavor" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="size">size</label>
+                    <input id="size" name="size" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="rating">rating</label>
+                    <input id="rating" name="rating" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="image">image</label>
+                    <input id="image" name="image" type="URL">
+                </div>
+                <button class="add-cupcake">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+        integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
+    <script src="/static/cupcakes.js"></script>
+</body>
+
+</html>

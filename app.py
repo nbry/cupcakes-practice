@@ -12,6 +12,15 @@ app.config['SECRET_KEY'] = "eifjawloijcvliejfiwnbnsliex0"
 connect_db(app)
 
 
+@app.route('/', methods=['GET'])
+def home_route():
+    """ Render simple interface for listing cupcakes from cupcakes_db,
+    and show a form that allows user to add a new cupcake """
+
+    cupcakes = Cupcake.query.all()
+    return render_template('front.html', cupcakes=cupcakes)
+
+
 @app.route('/api/cupcakes')
 def list_cupcakes():
     """ Returns list of cupcakes from cupcakes_db in JSON """
